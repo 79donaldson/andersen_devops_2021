@@ -1,0 +1,30 @@
+---
+- name: start app python flask
+  hosts: all
+  become: yes
+
+  tasks:
+
+  - name: Clone from github repository
+    git:
+      repo: https://github.com/79donaldson/myfirstproject.git
+      dest: /home/asushko/repos/
+      clone: yes
+      update: yes
+
+  - name: Build docker image from Dockerfile
+    docker_image:
+      name: web_python_app
+      build:
+        pull: yes
+        path: /home/asushko/repos/
+      state: present
+      source: build
+
+  - name: Launch docker container
+    docker_container:
+       name: test_web_app
+       image: web_python_app
+       state: started
+       ports:
+       - "5000:5000"
