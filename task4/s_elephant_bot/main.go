@@ -30,12 +30,58 @@ func main() {
 		panic("update channel error: " + err.Error())
 	}
 
+	//	btn := tgbotapi.KeyboardButton{Text: "My Git"}
+
 	for {
 
 		update = <-updChannel
 		if update.Message != nil {
-			fmt.Printf("messege: %s\n", update.Message.Text)
+
+			if update.Message.IsCommand() {
+				cmdText := update.Message.Command()
+				if cmdText == "Git" {
+					msgConfig := tgbotapi.NewMessage(
+						update.Message.Chat.ID,
+						"https://github.com/79donaldson/andersen_devops_2021")
+					bot.Send(msgConfig)
+				} else if cmdText == "Task1" {
+					msgConfig := tgbotapi.NewMessage(
+						update.Message.Chat.ID,
+						"https://github.com/79donaldson/andersen_devops_2021/tree/main/task1")
+					bot.Send(msgConfig)
+				} else if cmdText == "Task2" {
+					msgConfig := tgbotapi.NewMessage(
+						update.Message.Chat.ID,
+						"https://github.com/79donaldson/andersen_devops_2021/tree/main/task2")
+					bot.Send(msgConfig)
+				} else if cmdText == "Task3" {
+					msgConfig := tgbotapi.NewMessage(
+						update.Message.Chat.ID,
+						"https://github.com/79donaldson/andersen_devops_2021/tree/main/task3")
+					bot.Send(msgConfig)
+				} else if cmdText == "Task4" {
+					msgConfig := tgbotapi.NewMessage(
+						update.Message.Chat.ID,
+						"https://github.com/79donaldson/andersen_devops_2021/tree/main/task4")
+					bot.Send(msgConfig)
+				}
+			} else {
+
+				fmt.Printf(
+					"from: %s; chatID: %v; messege: %s\n",
+					update.Message.From.FirstName,
+					update.Message.Chat.ID,
+					update.Message.Text)
+
+				msgConfig := tgbotapi.NewMessage(
+					update.Message.Chat.ID,
+					update.Message.Text)
+				bot.Send(msgConfig)
+			}
+		} else {
+			fmt.Printf("not messege: %+v\n", update)
 		}
+
 	}
 
 	bot.StopReceivingUpdates()
