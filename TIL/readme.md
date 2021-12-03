@@ -7,5 +7,5 @@
   - Also I had Englesh lesson.
 
 -  30.11.2021
-  - I studed and try wrote two telegram bots on the GO. First bot for the course (wich i will want do upgrade and all menu create as button) and second bot i try writing now for travel agancy.  
+  - I studed and try wrote two telegram bots on the GO. First bot for the course (wich i will want do upgrade and all menu create as button) and second bot i try writing now       for travel agancy.  
   
