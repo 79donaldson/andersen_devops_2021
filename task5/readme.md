@@ -1,14 +1,21 @@
-#Module 1 Task 1
-- write shortly about yourself.
+#Task 5
+- https://hub.docker.com/repository/docker/79donaldson/web_app_python.
 
-   My name Sushko Aleksii. I am working system administrator now. In 2008 i finished study National Mining University – specialist degree in « Programming of Automatic Systems.». I want study new specialization for me as DEVOPS and grow as specialist. 
+  Build a docker container for your python app!
+   - this time it needs to listen port 8080, HTTP only
+   - the lighter in terms of image size it is – the more points you get
+   - the one who builds the smallest image gets even more points!
+  
+   Hints:
+   - use the minimal possible setup
+   - 100MB is a lot
 
-- indicate 3 points why you are interested in the course.
-  1. For me interesting new tehnology;
-  2. i want improve my soft-skills and hard-skill in the different OS (linux, macos, windows), virtualization and other;
-  3. On the courses i meet interesting people and i can solve difficult and interesting questions
+  Size 65MB
 
-- indicate 3 points, what you yourself expect from the course.
-  1. Study new tehnology for me;
-  2. improve my soft-skills and hard-skill;
-  3. interesting people.
+  
+  For the start docker container i used command:
+      
+      docker run -d -p 8080:5000 web_app_python
+
+    As results:
+       ![result after started docker container](1.jpg)
